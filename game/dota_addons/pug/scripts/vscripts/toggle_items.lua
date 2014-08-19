@@ -6,8 +6,10 @@ function replaceAbility(keys, ability1, ability2)
 
 	if c == 0 then
 		keys.ability:EndCooldown()
+		if lastWeapon[caster:GetPlayerID()] == keys.ability:GetName() then
+			removeAbilities(keys)
+		end
 		lastWeapon[caster:GetPlayerID()] = ""
-		removeAbilities(keys)
 		return nil
 	end
 
