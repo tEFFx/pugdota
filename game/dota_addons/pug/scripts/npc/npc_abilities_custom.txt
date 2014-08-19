@@ -2,7 +2,7 @@
 "DOTAAbilities"
 {
 	"Version"		"1"
-
+	
 	"ability_ondeath"
 	{
 		"BaseClass"						"ability_datadriven"
@@ -15,6 +15,34 @@
 				"ScriptFile"			"toggle_items.lua"
 				"Function"				"dropWeapon"
 				"Target"				"CASTER"
+			}
+		}
+	}
+
+	"ability_outpost"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN"
+
+		"Modifiers"
+		{
+			"stay_alive"
+			{
+				"Passive"				"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+				}
+
+				"OnTakeDamage"
+				{
+						"RunScript"
+					{
+						"ScriptFile"			"outpost.lua"
+						"Function"				"changeOwner"
+						"Target"				"CASTER"
+					}
+				}
 			}
 		}
 	}

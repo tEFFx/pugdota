@@ -2,9 +2,18 @@ lastWeapon = {}
 
 function replaceAbility(keys, ability1, ability2)
 	local caster = keys.caster
+	local c = keys.ability:GetCurrentCharges()
 
-	if lastWeapon == keys.ability then
+	if c == 0 then
 		keys.ability:EndCooldown()
+		lastWeapon[caster:GetPlayerID()] = ""
+		removeAbilities(keys)
+		return nil
+	end
+
+	if lastWeapon[caster:GetPlayerID()] == keys.ability:GetName() then
+		keys.ability:EndCooldown()
+		keys.ability:SetCurrentCharges(c + 1)
 		print("no wepon for u")
 		return nil
 	end
@@ -23,8 +32,8 @@ function replaceAbility(keys, ability1, ability2)
 	caster:UpgradeAbility(a1)
 	caster:UpgradeAbility(a2)
 
-	lastWeapon[caster:GetPlayerID()] = keys.ability
-	print(lastWeapon[caster:GetPlayerID()]:GetAbilityName())
+	lastWeapon[caster:GetPlayerID()] = keys.ability:GetName()
+	print(lastWeapon[caster:GetPlayerID()])
 end
 
 function toggleBlink(keys)
@@ -41,7 +50,7 @@ end
 
 function dropWeapon(keys)
 	local caster = keys.caster
-	lastWeapon[caster:GetPlayerID()] = nil
+	lastWeapon[caster:GetPlayerID()] = ""
 	print("dropping yo stuffz")
 	for i=0,5 do
 		local item = caster:GetItemInSlot(i)

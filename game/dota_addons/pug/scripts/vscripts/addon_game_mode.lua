@@ -19,7 +19,7 @@ function Precache( context )
 	]]
 
 	PrecacheResource("particle_folder", "particles/units/heroes/hero_mirana/", context)
-
+	PrecacheResource("model", "models/heroes/undying/undying_tower.vmdl", context)
 end
 
 -- Create the game mode when we activate
@@ -56,7 +56,7 @@ function CAddonTemplateGameMode:OnThink()
 		for i, s in ipairs(spawnAreas) do
 			local e = #Entities:FindAllInSphere(s:GetAbsOrigin(), 10)
 			if Time() > spawnPickupTime[i] + 10 and e == 1 then
-				local random = math.random(1, #weapons)
+				local random = RandomInt(1, #weapons)
 				local name = weapons[random]
 				local created = CreateItemOnPositionSync(s:GetAbsOrigin(), CreateItem(name, nil, nil)) 
 				print(random)
