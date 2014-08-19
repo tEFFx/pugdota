@@ -1,0 +1,210 @@
+// Dota Heroes File
+"DOTAAbilities"
+{
+	"Version"		"1"
+
+	"ability_ondeath"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN"
+
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"toggle_items.lua"
+				"Function"				"dropWeapon"
+				"Target"				"CASTER"
+			}
+		}
+	}
+
+	"weapon_blink_blink"
+	{
+		"BaseClass"						"antimage_blink"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastRange"				"1500"
+		"AbilityCooldown"				"3"
+		"AbilityManaCost"				"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"blink_range"			"1500"
+			}
+			
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"min_blink_range"		"500"
+			}
+		}
+	}
+
+	"weapon_blink_passive"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"Modifiers"
+		{
+			"attribute_bonus"
+			{
+				"Passive"				"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" 	"-50"
+					"MODIFIER_PROPERTY_BONUS_VISION_PERCENTAGE" "-80"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"			"-750"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"		"-100"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-200"
+				}
+			}
+		}
+	}
+
+	"weapon_stungun_shoot"
+	{
+		"BaseClass"						"mirana_arrow"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"FightRecapLevel"				"1"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"3000"
+		"AbilityCastPoint"				"0.5 0.5 0.5 0.5"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"10"
+		"AbilityDuration"				"3.11 3.11 3.11 3.11"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"arrow_speed"		"1000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"arrow_width"		"115"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"arrow_range"		"5000"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"arrow_max_stunrange"	"2500"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"arrow_min_stun"	"0.5"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"arrow_max_stun"	"3.0"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"arrow_bonus_damage"	"500"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"arrow_vision"	"650"
+			}
+		}
+	}
+
+	"weapon_stungun_passive"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"Modifiers"
+		{
+			"attribute_bonus"
+			{
+				"Passive"				"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" 	"200"
+					"MODIFIER_PROPERTY_BONUS_VISION_PERCENTAGE" "-25"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"			"-250"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"		"200"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "50"
+				}
+			}
+		}
+	}
+
+	"weapon_sniper_snipe"
+	{
+		"BaseClass"						"nevermore_shadowraze3"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+
+		"AbilityDamage"					"850"
+		"AbilityCastPoint"				"1.0"
+		"AbilityManacost"				"0"
+		"AbilityCooldown"				"3.0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"shadowraze_radius"	"150"		
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"shadowraze_range"	"1000"
+			}
+		}
+	}
+
+	"weapon_sniper_passive"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"Modifiers"
+		{
+			"attribute_bonus"
+			{
+				"Passive"				"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" 	"100"
+					"MODIFIER_PROPERTY_BONUS_VISION_PERCENTAGE" "50"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"			"-500"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"		"800"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-100"
+				}
+			}
+		}
+	}
+}

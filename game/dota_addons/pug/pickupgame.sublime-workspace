@@ -1,0 +1,370 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"GetOwner",
+				"GetPlayerOwner	Returns the player that owns this unit"
+			],
+			[
+				"DropItem",
+				"DropItemAtPositionImmediate	Immediately drop a carried item at a given position."
+			],
+			[
+				"FindAllEn",
+				"FindAllByNameWithin	Find entities by name within a radius."
+			],
+			[
+				"Enti",
+				"Entities"
+			],
+			[
+				"Crea",
+				"CreateItem	Creates an item with classname"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "scripts/vscripts/toggle_items.lua",
+			"settings":
+			{
+				"buffer_size": 1528,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "scripts/npc/npc_items_custom.txt",
+			"settings":
+			{
+				"buffer_size": 1739,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "scripts/npc/npc_abilities_custom.txt",
+			"settings":
+			{
+				"buffer_size": 4513,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "scripts/npc/herolist.txt",
+			"settings":
+			{
+				"buffer_size": 158,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "scripts/vscripts/addon_game_mode.lua",
+			"settings":
+			{
+				"buffer_size": 2199,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "scripts/npc/npc_heroes_custom.txt",
+			"settings":
+			{
+				"buffer_size": 2954,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Program Files (x86)/Steam/steamapps/common/dota 2 beta/dota_ugc/game/dota_addons/pickupgamedota/scripts/npc/npc_heroes_custom.txt",
+		"/C/Program Files (x86)/Steam/steamapps/common/dota 2 beta/dota_ugc/game/dota_addons/pickupgamedota/scripts/npc/npc_abilities_custom.txt",
+		"/C/Program Files (x86)/Steam/steamapps/common/dota 2 beta/dota_ugc/game/dota_addons/pickupgamedota/scripts/npc/herolist.txt",
+		"/C/Program Files (x86)/Steam/steamapps/common/dota 2 beta/dota_ugc/game/dota_addons/pickupgamedota/scripts/vscripts/toggle_items.lua",
+		"/C/Program Files (x86)/Steam/steamapps/common/dota 2 beta/dota_ugc/game/dota_addons/pickupgamedota/scripts/vscripts/addon_game_mode.lua",
+		"/C/Program Files (x86)/Steam/steamapps/common/dota 2 beta/dota_ugc/game/dota_addons/pickupgame/scripts/npc/npc_items_custom.txt",
+		"/C/Program Files (x86)/Steam/steamapps/common/dota 2 beta/dota_ugc/game/dota_addons/pickupgame/scripts/vscripts/toggle_items.lua",
+		"/C/Program Files (x86)/Steam/steamapps/common/dota 2 beta/dota_ugc/game/dota_addons/pickupgame/scripts/npc/npc_abilities_custom.txt"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "scripts/vscripts/toggle_items.lua",
+					"settings":
+					{
+						"buffer_size": 1528,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1513,
+								1513
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua Dota/Lua.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "scripts/npc/npc_items_custom.txt",
+					"settings":
+					{
+						"buffer_size": 1739,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								331,
+								331
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 180.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "scripts/npc/npc_abilities_custom.txt",
+					"settings":
+					{
+						"buffer_size": 4513,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								618,
+								618
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "scripts/npc/herolist.txt",
+					"settings":
+					{
+						"buffer_size": 158,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								134,
+								125
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "scripts/vscripts/addon_game_mode.lua",
+					"settings":
+					{
+						"buffer_size": 2199,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								861,
+								861
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua Dota/Lua.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "scripts/npc/npc_heroes_custom.txt",
+					"settings":
+					{
+						"buffer_size": 2954,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								734,
+								734
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 234.0,
+	"status_bar_visible": true
+}

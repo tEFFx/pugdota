@@ -1,0 +1,84 @@
+"DOTAAbilities"
+{
+	"item_weapon_blink"
+	{
+		"ID"							"1005"
+
+		"BaseClass"						"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"			"item_blink"
+
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		"AbilityCooldown"				"30.0"
+		"ItemKillable"					"1"
+		"ItemSellable"					"0"
+		"ItemDroppable"					"1"
+		"ItemStackable"					"1"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"toggle_items.lua"
+				"Function"				"toggleBlink"
+				"Target"				"CASTER"
+			}
+		}
+	}
+
+	"item_weapon_stungun"
+	{
+		"ID"							"1005"
+
+		"BaseClass"						"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"			"item_rapier"
+
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		"AbilityCooldown"				"15.0"
+		"ItemKillable"					"1"
+		"ItemSellable"					"0"
+		"ItemDroppable"					"1"
+		"ItemStackable"					"1"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"toggle_items.lua"
+				"Function"				"toggleStungun"
+				"Target"				"CASTER"
+			}
+		}
+	}
+
+	"item_weapon_sniper"
+	{
+		"ID"							"1006"
+
+		"BaseClass"						"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"			"item_butterfly"
+
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		"AbilityCooldown"				"5.0"
+		"ItemKillable"					"1"
+		"ItemSellable"					"0"
+		"ItemDroppable"					"1"
+		"ItemStackable"					"1"
+
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"toggle_items.lua"
+				"Function"				"toggleSniper"
+				"Target"				"CASTER"
+			}
+		}
+	}
+}
