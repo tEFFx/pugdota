@@ -69,7 +69,7 @@ function removeAbilities(keys)
 	caster:RemoveModifierByName("attribute_bonus")
 	for i=0,3 do
 		local remove = caster:GetAbilityByIndex(i)
-		if remove ~= nil then
+		if remove ~= nil and remove:GetName() ~= "ability_ondeath" then
 			caster:RemoveAbility(remove:GetAbilityName())
 		end
 	end
