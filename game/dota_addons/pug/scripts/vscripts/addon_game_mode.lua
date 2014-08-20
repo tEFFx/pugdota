@@ -32,6 +32,12 @@ function CAddonTemplateGameMode:InitGameMode()
 	print( "Template addon is loaded." )
 	spawnAreas = Entities:FindAllByName("dota_weapon_spawner")
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
+	GameRules:SetHeroRespawnEnabled( true )
+	GameRules:SetUseUniversalShopMode( false )
+	GameRules:SetSameHeroSelectionEnabled( true )
+	GameRules:SetHeroSelectionTime( 15.0 )
+	GameRules:SetPreGameTime( 15.0 )
+	GameRules:SetPostGameTime( 30.0 )
 end
 
 -- Evaluate the state of the game
