@@ -10,7 +10,7 @@
 
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
-		"AbilityCooldown"				"30.0"
+		"AbilityCooldown"				"20.0"
 		"ItemKillable"					"1"
 		"ItemSellable"					"0"
 		"ItemDroppable"					"1"
@@ -42,7 +42,7 @@
 
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
-		"AbilityCooldown"				"15.0"
+		"AbilityCooldown"				"3.0"
 		"ItemKillable"					"1"
 		"ItemSellable"					"0"
 		"ItemDroppable"					"1"
@@ -74,7 +74,7 @@
 
 		"ItemCost"						"4"	
 		"ItemShopTags"					""
-		"AbilityCooldown"				"5.0"
+		"AbilityCooldown"				"3.0"
 		"ItemKillable"					"1"
 		"ItemSellable"					"0"
 		"ItemDroppable"					"1"

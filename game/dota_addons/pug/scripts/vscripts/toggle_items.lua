@@ -57,6 +57,7 @@ function dropWeapon(keys)
 	for i=0,5 do
 		local item = caster:GetItemInSlot(i)
 		if item ~= nil then
+			item:SetOwner(nil)
 			caster:DropItemAtPositionImmediate(item, caster:GetAbsOrigin() + RandomVector(RandomFloat(0, 50)))
 		end
 	end

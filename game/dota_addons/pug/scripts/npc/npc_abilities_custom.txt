@@ -2,7 +2,7 @@
 "DOTAAbilities"
 {
 	"Version"		"1"
-	
+
 	"ability_ondeath"
 	{
 		"BaseClass"						"ability_datadriven"
@@ -85,10 +85,9 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" 	"-50"
-					"MODIFIER_PROPERTY_BONUS_VISION_PERCENTAGE" "-80"
-					"MODIFIER_PROPERTY_HEALTH_BONUS"			"-750"
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"		"-100"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-200"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"			"-200"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"		"-150"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "122"
 				}
 			}
 		}
@@ -126,7 +125,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"arrow_speed"		"1000"
+				"arrow_speed"		"1500.0"
 			}
 			"02"
 			{
@@ -146,17 +145,17 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"arrow_min_stun"	"0.5"
+				"arrow_min_stun"	"1.0"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"arrow_max_stun"	"3.0"
+				"arrow_max_stun"	"10.0"
 			}
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"arrow_bonus_damage"	"500"
+				"arrow_bonus_damage"	"500.0"
 			}
 			"08"
 			{
@@ -178,11 +177,9 @@
 				"Passive"				"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" 	"200"
-					"MODIFIER_PROPERTY_BONUS_VISION_PERCENTAGE" "-25"
-					"MODIFIER_PROPERTY_HEALTH_BONUS"			"-250"
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"		"200"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "50"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" 	"150"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"			"-500"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-100"
 				}
 			}
 		}
@@ -226,11 +223,10 @@
 				"Passive"				"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" 	"100"
-					"MODIFIER_PROPERTY_BONUS_VISION_PERCENTAGE" "50"
-					"MODIFIER_PROPERTY_HEALTH_BONUS"			"-500"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" 	"25"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"			"250"
 					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"		"800"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-100"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "100"
 				}
 			}
 		}

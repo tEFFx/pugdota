@@ -36,7 +36,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:SetUseUniversalShopMode( false )
 	GameRules:SetSameHeroSelectionEnabled( true )
 	GameRules:SetHeroSelectionTime( 15.0 )
-	GameRules:SetPreGameTime( 15.0 )
+	GameRules:SetPreGameTime( 20.0 )
 	GameRules:SetPostGameTime( 30.0 )
 end
 
