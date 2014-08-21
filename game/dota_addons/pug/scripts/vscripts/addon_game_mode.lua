@@ -2,7 +2,7 @@
 hero = nil
 weapons = {"item_weapon_sniper", "item_weapon_stungun", "item_weapon_blink"}
 spawnAreas = {}
-spawnPickupTime = {0, 0, 0, 0, 0, 0 ,0 ,0}
+spawnPickupTime = {}
 
 if CAddonTemplateGameMode == nil then
 	CAddonTemplateGameMode = class({})
@@ -19,7 +19,7 @@ function Precache( context )
 	]]
 
 	PrecacheResource("particle_folder", "particles/units/heroes/hero_mirana/", context)
-	PrecacheResource("model", "models/heroes/undying/undying_tower.vmdl", context)
+	PrecacheResource("particle_folder", "particles/units/heroes/hero_antimage/", context)
 end
 
 -- Create the game mode when we activate
@@ -42,25 +42,12 @@ end
 
 -- Evaluate the state of the game
 function CAddonTemplateGameMode:OnThink()
-	--[[if hero == nil then
-		hero = Entities:FindByClassname(nil, "npc_dota_hero_nevermore")
-	end
-
-	if hero ~= nil then
-		if hero:HasItemInInventory("item_weapon_sniper") ~= true then
-			hero:AddItem(CreateItem("item_weapon_sniper", hero, hero))
-		end
-		if hero:HasItemInInventory("item_weapon_railgun") ~= true then
-			hero:AddItem(CreateItem("item_weapon_railgun", hero, hero))
-			CreateItem()
-		end
-	end]]
-
-	--print(Time())
-
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		for i, s in ipairs(spawnAreas) do
 			local e = #Entities:FindAllInSphere(s:GetAbsOrigin(), 10)
+			if spawnPickupTime[i] == nil then
+				spawnPickupTime[i] = Time()
+			end
 			if Time() > spawnPickupTime[i] + 10 and e == 1 then
 				local random = RandomInt(1, #weapons)
 				local name = weapons[random]

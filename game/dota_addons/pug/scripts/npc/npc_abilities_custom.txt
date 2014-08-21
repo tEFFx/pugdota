@@ -36,12 +36,52 @@
 
 				"OnTakeDamage"
 				{
-						"RunScript"
+					"RunScript"
 					{
 						"ScriptFile"			"outpost.lua"
 						"Function"				"changeOwner"
 						"Target"				"CASTER"
 					}
+
+					"RemoveModifier"
+					{
+						"Target"				"CASTER"
+						"ModifierName"			"regen_disabled"
+					}
+
+					"RemoveModifier"
+					{
+						"Target"				"CASTER"
+						"ModifierName"			"regen_enabled"
+					}
+
+					"ApplyModifier"
+					{
+						"Target"				"CASTER"
+						"ModifierName"			"regen_disabled"
+					}
+				}
+			}
+
+			"regen_disabled"
+			{
+				"Duration"						"5"
+
+				"OnDestroy"
+				{
+					"ApplyModifier"
+					{
+						"Target"			"CASTER"
+						"ModifierName"		"regen_enabled"
+					}
+				}
+			}
+
+			"regen_enabled"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"30"
 				}
 			}
 		}
@@ -52,7 +92,7 @@
 		"BaseClass"						"antimage_blink"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityCastPoint"				"0.3"
-		"AbilityCastRange"				"1500"
+		"AbilityCastRange"				"3000"
 		"AbilityCooldown"				"3"
 		"AbilityManaCost"				"0"
 

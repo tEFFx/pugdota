@@ -23,7 +23,7 @@
 			"RunScript"
 			{
 				"ScriptFile"			"toggle_items.lua"
-				"Function"				"toggleBlink"
+				"Function"				"replaceAbility"
 				"Target"				"CASTER"
 			}
 
@@ -48,14 +48,14 @@
 		"ItemDroppable"					"1"
 		"ItemStackable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialCharges"			"5"
+		"ItemInitialCharges"			"2"
 
 		"OnSpellStart"
 		{
 			"RunScript"
 			{
 				"ScriptFile"			"toggle_items.lua"
-				"Function"				"toggleStungun"
+				"Function"				"replaceAbility"
 				"Target"				"CASTER"
 			}
 
@@ -72,7 +72,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityTextureName"			"item_butterfly"
 
-		"ItemCost"						"4"	
+		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		"AbilityCooldown"				"3.0"
 		"ItemKillable"					"1"
@@ -80,14 +80,14 @@
 		"ItemDroppable"					"1"
 		"ItemStackable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialCharges"			"3"
+		"ItemInitialCharges"			"2"
 
 		"OnSpellStart"
 		{
 			"RunScript"
 			{
 				"ScriptFile"			"toggle_items.lua"
-				"Function"				"toggleSniper"
+				"Function"				"replaceAbility"
 				"Target"				"CASTER"
 			}
 
