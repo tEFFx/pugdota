@@ -38,7 +38,7 @@ function shootArrow(keys)
 	stats = {speed = tonumber(keys.Speed), maxdist = tonumber(keys.MaxDistance)}
 	print("new arrow")
 	local p = ProjectileManager:CreateLinearProjectile(infoTable)
-	projectiles[caster:GetPlayerID()] = {id = p, timeCreated = Time(), start = caster:GetAbsOrigin(), forwardVector = caster:GetForwardVector(), d = -1, distance = 0, timefirst = Time()}
+	projectiles[caster:GetPlayerID()] = {id = p, timeCreated = Time(), start = caster:GetAbsOrigin(), forwardVector = caster:GetForwardVector(), d = -1, distance = 0, timefirst = Time(), jumps = 0}
 	caster:SwapAbilities("weapon_stungun_shoot", "weapon_stungun_shoot_alt", false, true)
 end
 
@@ -57,7 +57,11 @@ function changeArrow(keys)
 	ProjectileManager:DestroyLinearProjectile(projectiles[caster:GetPlayerID()].id)
 	print("directed projectile")
 	local p = ProjectileManager:CreateLinearProjectile(infoTable)
-	projectiles[caster:GetPlayerID()] = {id = p, timeCreated = Time(), forwardVector = point, start = startPoint, d = delta, distance = dist, timefirst = projectiles[caster:GetPlayerID()].timefirst}
+	projectiles[caster:GetPlayerID()] = {id = p, timeCreated = Time(), forwardVector = point, start = startPoint, d = delta, distance = dist, timefirst = projectiles[caster:GetPlayerID()].timefirst, jumps = projectiles[caster:GetPlayerID()].jumps + 1}
+
+	if projectiles[caster:GetPlayerID()].jumps > 3 then
+		caster:SwapAbilities("weapon_stungun_shoot", "weapon_stungun_shoot_alt", true, false)
+	end
 end
 
 function missArrow(keys)

@@ -71,14 +71,16 @@
 
 			"regen_disabled"
 			{
+
 				"Duration"						"5"
 
 				"OnDestroy"
 				{
-					"ApplyModifier"
+					"RunScript"
 					{
-						"Target"			"CASTER"
-						"ModifierName"		"regen_enabled"
+						"ScriptFile"			"outpost.lua"
+						"Function"				"regen_enabled"
+						"Target"				"CASTER"
 					}
 				}
 			}
@@ -93,6 +95,39 @@
 		}
 	}
 
+	"ability_outpost_reclaim"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"				"CASTER"
+				"ModifierName"			"vision_cooldown"
+			}
+		}
+
+		"Modifiers"
+		{
+			"vision_cooldown"
+			{
+				"Passive"				"1"
+				"Duration"				"120"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"outpost.lua"
+						"Function"				"reclaim"
+						"Target"				"CASTER"
+					}
+				}				
+			}
+		}
+	}
+
 	"weapon_starter_silence"
 	{
 		"BaseClass"						"drow_ranger_wave_of_silence"
@@ -103,6 +138,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"900"
 		"AbilityCastPoint"				"0.4"
+		"AbilityDamage"					"150"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -168,7 +204,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"blink_range"			"1500"
+				"blink_range"			"1400"
 			}
 			
 			"02"
@@ -296,8 +332,8 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" 	"150"
-					"MODIFIER_PROPERTY_HEALTH_BONUS"			"-500"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-100"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"			"-600"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-125"
 				}
 			}
 		}
@@ -341,8 +377,8 @@
 				"Passive"				"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" 	"25"
-					"MODIFIER_PROPERTY_HEALTH_BONUS"			"250"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" 	"50"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"			"0"
 					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"		"800"
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "100"
 				}
