@@ -76,11 +76,10 @@
 
 				"OnDestroy"
 				{
-					"RunScript"
+					"ApplyModifier"
 					{
-						"ScriptFile"			"outpost.lua"
-						"Function"				"regen_enabled"
 						"Target"				"CASTER"
+						"ModifierName"			"regen_enabled"
 					}
 				}
 			}

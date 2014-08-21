@@ -1,9 +1,9 @@
 pug_river
 {
 	material materials/overviews/pug_river.vmat
-	pos_x -7808
-	pos_y 8051
-	scale 16.000
+	pos_x -4096
+	pos_y 4096
+	scale 8.000
 	zoom 1.050
 }
 
