@@ -1,5 +1,21 @@
 "DOTAAbilities"
 {
+	"item_tree_genocide"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityCooldown"				"0.0"
+
+		"OnSpellStart"
+		{
+			"DestroyTrees"
+			{
+				"Target"				"POINT"
+				"Radius"				"300"
+			}
+		}
+	}
+
 	"item_weapon_starter"
 	{
 		"BaseClass"						"item_datadriven"

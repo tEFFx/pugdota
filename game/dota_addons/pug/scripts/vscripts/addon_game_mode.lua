@@ -58,9 +58,9 @@ function CAddonTemplateGameMode:OnThink()
 		for i, s in ipairs(spawnAreas) do
 			local e = #Entities:FindAllInSphere(s:GetAbsOrigin(), 10)
 			if spawnPickupTime[i] == nil then
-				spawnPickupTime[i] = Time()
+				spawnPickupTime[i] = -30
 			end
-			if Time() > spawnPickupTime[i] + 10 and e == 1 then
+			if Time() > spawnPickupTime[i] + 30 and e == 1 then
 				local random = RandomInt(1, #weapons)
 				local name = weapons[random]
 				local created = CreateItemOnPositionSync(s:GetAbsOrigin(), CreateItem(name, nil, nil)) 

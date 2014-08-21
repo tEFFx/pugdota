@@ -2,6 +2,11 @@ projectiles = {}
 
 infoTable = {}
 stats = {}
+treeMurder = nil
+
+if TreeDestroyer == nil then
+	TreeDestroyer = class ({})
+end
 
 function initArrow(keys)
 	local caster = keys.caster
@@ -21,14 +26,14 @@ function shootArrow(keys)
 					EffectName = "particles/units/heroes/hero_magnataur/magnataur_shockwave.vpcf", 
 					vSpawnOrigin = caster:GetAbsOrigin(),
 			        fDistance = keys.MaxDistance,
-		        	fStartRadius = 150,
-		        	fEndRadius = 150,
+		        	fStartRadius = 200,
+		        	fEndRadius = 100,
 		        	Source = caster,
 		        	bHasFrontalCone = false,
 		        	bReplaceExisting = false,
-		        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY + DOTA_UNIT_TARGET_TEAM_NONE,
 		        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-		        	iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		        	iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_TREE,
 		        	fExpireTime = GameRules:GetGameTime() + 10.0,
 					bDeleteOnHit = false,
 					vVelocity = caster:GetForwardVector() * keys.Speed,
@@ -38,8 +43,11 @@ function shootArrow(keys)
 	stats = {speed = tonumber(keys.Speed), maxdist = tonumber(keys.MaxDistance)}
 	print("new arrow")
 	local p = ProjectileManager:CreateLinearProjectile(infoTable)
-	projectiles[caster:GetPlayerID()] = {id = p, timeCreated = Time(), start = caster:GetAbsOrigin(), forwardVector = caster:GetForwardVector(), d = -1, distance = 0, timefirst = Time()}
+	projectiles[caster:GetPlayerID()] = {id = p, timeCreated = Time(), start = caster:GetAbsOrigin(), forwardVector = caster:GetForwardVector(), d = -1, distance = 0, timefirst = Time(), jumps = 0, cast = caster}
 	caster:SwapAbilities("weapon_stungun_shoot", "weapon_stungun_shoot_alt", false, true)
+
+	GameRules:GetGameModeEntity():SetThink( "annihilateTrees", TreeDestroyer, "fuckTrees", 0.2 )
+	--TreeDestroyer:annihilateTrees()
 end
 
 function changeArrow(keys)
@@ -57,7 +65,12 @@ function changeArrow(keys)
 	ProjectileManager:DestroyLinearProjectile(projectiles[caster:GetPlayerID()].id)
 	print("directed projectile")
 	local p = ProjectileManager:CreateLinearProjectile(infoTable)
-	projectiles[caster:GetPlayerID()] = {id = p, timeCreated = Time(), forwardVector = point, start = startPoint, d = delta, distance = dist, timefirst = projectiles[caster:GetPlayerID()].timefirst}
+	projectiles[caster:GetPlayerID()] = {id = p, timeCreated = Time(), forwardVector = point, start = startPoint, d = delta, distance = dist, 
+	timefirst = projectiles[caster:GetPlayerID()].timefirst, jumps = projectiles[caster:GetPlayerID()].jumps + 1, cast = caster}
+
+	if projectiles[caster:GetPlayerID()].jumps > 3 then
+		caster:SwapAbilities("weapon_stungun_shoot", "weapon_stungun_shoot_alt", true, false)
+	end
 end
 
 function missArrow(keys)
@@ -86,4 +99,31 @@ function hitArrow(keys)
 	print("you hit!!!!")
 	caster:SwapAbilities("weapon_stungun_shoot", "weapon_stungun_shoot_alt", true, false)
 	projectiles[caster:GetPlayerID()] = nil
+end
+
+function TreeDestroyer:annihilateTrees()
+	local fail = true
+	for _,id in pairs(projectiles) do
+		if id ~= nil then
+			fail = false
+
+			if treeMurder == nil then
+				treeMurder = CreateItem("item_tree_genocide", id.cast, id.cast)
+			end
+
+			local delta = Time() - id.timeCreated
+			local pos = id.start + id.forwardVector * (delta * stats.speed)
+
+			id.cast:CastAbilityOnPosition(pos, treeMurder, -1)
+		end
+	end
+
+	print("tinkering")
+
+	if fail == true then
+		print("shit")
+		return nil
+	else
+		return 0.2
+	end
 end
