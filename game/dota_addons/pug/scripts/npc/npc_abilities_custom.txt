@@ -165,12 +165,12 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"wave_width"		"150"
+				"wave_width"		"200"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"silence_duration"	"0.5"
+				"silence_duration"	"3"
 			}
 			"05"
 			{
@@ -180,7 +180,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"knockback_duration"		"0.5"
+				"knockback_duration"		"2"
 			}
 			"07"
 			{
@@ -194,7 +194,7 @@
 	{
 		"BaseClass"						"antimage_blink"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0.4"
 		"AbilityCastRange"				"3000"
 		"AbilityCooldown"				"3"
 		"AbilityManaCost"				"0"
@@ -204,7 +204,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"blink_range"			"1400"
+				"blink_range"			"1200"
 			}
 			
 			"02"
@@ -257,8 +257,8 @@
 				"ScriptFile"			"shoot_arrow_hit_arrow.lua"
 				"Function"				"shootArrow"
 				"Target"				"POINT"
-				"Speed"					"1500"
-				"MaxDistance"			"3500"
+				"Speed"					"1250"
+				"MaxDistance"			"4000"
 			}
 		}
 
