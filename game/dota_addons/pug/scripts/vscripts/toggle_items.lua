@@ -12,9 +12,7 @@ function replaceAbility(keys)
 
 	if lastWeapon[caster:GetPlayerID()] == keys.ability:GetName()  then
 		keys.ability:EndCooldown()
-		if and itemName ~= "item_weapon_starter" then
-			keys.ability:SetCurrentCharges(c + 1)
-		end
+		keys.ability:SetCurrentCharges(c + 1)
 		print("no wepon for u")
 		return nil
 	end
