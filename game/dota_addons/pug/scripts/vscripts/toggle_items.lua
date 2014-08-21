@@ -1,17 +1,13 @@
 lastWeapon = {}
+weapons = {}
+weapons["item_weapon_blink"] = {"weapon_blink_blink", "weapon_blink_passive"}
+weapons["item_weapon_stungun"] = {"weapon_stungun_shoot", "weapon_stungun_passive"}
+weapons["item_weapon_sniper"] = {"weapon_sniper_snipe", "weapon_sniper_passive"}
 
-function replaceAbility(keys, ability1, ability2)
+function replaceAbility(keys)
 	local caster = keys.caster
 	local c = keys.ability:GetCurrentCharges()
-
-	if c == 0 then
-		keys.ability:EndCooldown()
-		if lastWeapon[caster:GetPlayerID()] == keys.ability:GetName() then
-			removeAbilities(keys)
-		end
-		lastWeapon[caster:GetPlayerID()] = ""
-		return nil
-	end
+	local itemName = keys.ability:GetName()
 
 	if lastWeapon[caster:GetPlayerID()] == keys.ability:GetName() then
 		keys.ability:EndCooldown()
@@ -20,34 +16,33 @@ function replaceAbility(keys, ability1, ability2)
 		return nil
 	end
 
+	if c <= 1 then
+		lastWeapon[caster:GetPlayerID()] = ""
+		for i=0,5 do
+			local item = caster:GetItemInSlot(i)
+			if item ~= nil and item:GetName() == itemName then
+				caster:RemoveItem(item)
+			end
+		end
+	end
+
 	removeAbilities(keys)
 
-	caster:AddAbility(ability1)
-	caster:AddAbility(ability2)
-
-	local a1 = caster:FindAbilityByName(ability1)
-	local a2 = caster:FindAbilityByName(ability2)
-	
-	a1:SetAbilityIndex(0)
-	a2:SetAbilityIndex(1)
 	caster:SetAbilityPoints(2)
-	caster:UpgradeAbility(a1)
-	caster:UpgradeAbility(a2)
 
-	lastWeapon[caster:GetPlayerID()] = keys.ability:GetName()
+	caster:AddAbility(weapons[itemName][1])
+	local active = caster:FindAbilityByName(weapons[itemName][1])	
+	active:SetAbilityIndex(1)
+	caster:UpgradeAbility(active)
+
+	caster:AddAbility(weapons[itemName][2])
+	local passive = caster:FindAbilityByName(weapons[itemName][2])
+	passive:SetAbilityIndex(0)
+	caster:UpgradeAbility(passive)
+
+	lastWeapon[caster:GetPlayerID()] = itemName
+	print("PlayerID")
 	print(lastWeapon[caster:GetPlayerID()])
-end
-
-function toggleBlink(keys)
-	replaceAbility(keys, "weapon_blink_blink", "weapon_blink_passive")
-end
-
-function toggleStungun(keys)
-	replaceAbility(keys, "weapon_stungun_shoot", "weapon_stungun_passive")
-end
-
-function toggleSniper(keys)
-	replaceAbility(keys, "weapon_sniper_snipe", "weapon_sniper_passive")
 end
 
 function dropWeapon(keys)
@@ -57,8 +52,7 @@ function dropWeapon(keys)
 	for i=0,5 do
 		local item = caster:GetItemInSlot(i)
 		if item ~= nil then
-			item:SetOwner(nil)
-			caster:DropItemAtPositionImmediate(item, caster:GetAbsOrigin() + RandomVector(RandomFloat(0, 50)))
+			caster:RemoveItem(item)
 		end
 	end
 
