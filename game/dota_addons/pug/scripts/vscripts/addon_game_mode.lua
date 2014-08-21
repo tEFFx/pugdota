@@ -9,7 +9,7 @@ if CAddonTemplateGameMode == nil then
 end
 
 function Precache( context )
-	PrecacheResource("particle_folder", "particles/units/heroes/hero_mirana/", context)
+	PrecacheResource("particle_folder", "particles/units/heroes/hero_magnataur", context)
 	PrecacheResource("particle_folder", "particles/units/heroes/hero_antimage/", context)
 	PrecacheResource("particle_folder", "particles/units/heroes/hero_drow/", context)
 	PrecacheUnitByNameSync("npc_dota_hero_nevermore", context)

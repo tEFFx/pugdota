@@ -21,7 +21,8 @@
 			{
 				"ScriptFile"			"toggle_items.lua"
 				"Function"				"replaceAbility"
-				"Target"				"CASTER"
+				"Target"				"POINT"
+				"EffectName"			"tinker_laser"
 			}
 		}
 	}

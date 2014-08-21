@@ -202,72 +202,83 @@
 
 	"weapon_stungun_shoot"
 	{
-		"BaseClass"						"mirana_arrow"
+		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"FightRecapLevel"				"1"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"3000"
 		"AbilityCastPoint"				"0.5 0.5 0.5 0.5"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"10"
-		"AbilityDuration"				"3.11 3.11 3.11 3.11"
-
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"15"
 		"AbilityManaCost"				"0"
+		"AbilityTextureName"			"magnataur_shockwave"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"OnSpellStart"
 		{
-			"01"
+			"RunScript"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"arrow_speed"		"1500.0"
+				"ScriptFile"			"shoot_arrow_hit_arrow.lua"
+				"Function"				"shootArrow"
+				"Target"				"POINT"
+				"Speed"					"1500"
+				"MaxDistance"			"3500"
 			}
-			"02"
+		}
+
+		"OnProjectileHitUnit"
+		{
+			"RunScript"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"arrow_width"		"115"
+				"ScriptFile"			"shoot_arrow_hit_arrow.lua"
+				"Function"				"hitArrow"
+				"Target"				"TARGET"
+				"MaxStun"				"5"
+				"MaxDamage"				"300"
 			}
-			"03"
+		}
+
+		"OnProjectileFinish"
+		{
+			"RunScript"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"arrow_range"		"5000"
+				"ScriptFile"			"shoot_arrow_hit_arrow.lua"
+				"Function"				"missArrow"
+				"Target"				"TARGET"
 			}
-			"04"
+		}
+
+		"OnUpgrade"
+		{
+			"RunScript"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"arrow_max_stunrange"	"2500"
+				"ScriptFile"			"shoot_arrow_hit_arrow.lua"
+				"Function"				"initArrow"
+				"Target"				"POINT"
 			}
-			"05"
+		}
+	}
+
+	"weapon_stungun_shoot_alt"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"3000"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+		"AbilityTextureName"			"magnataur_empower"
+
+		"OnSpellStart"
+		{
+			"RunScript"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"arrow_min_stun"	"1.0"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"arrow_max_stun"	"10.0"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"arrow_bonus_damage"	"500.0"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"arrow_vision"	"650"
+				"ScriptFile"			"shoot_arrow_hit_arrow.lua"
+				"Function"				"changeArrow"
+				"Target"				"POINT"
 			}
 		}
 	}

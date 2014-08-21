@@ -32,7 +32,7 @@ function replaceAbility(keys)
 	caster:SetAbilityPoints(2)
 
 	caster:AddAbility(weapons[itemName][1])
-	local active = caster:FindAbilityByName(weapons[itemName][1])	
+	local active = caster:FindAbilityByName(weapons[itemName][1])
 	active:SetAbilityIndex(1)
 	caster:UpgradeAbility(active)
 
