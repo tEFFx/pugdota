@@ -1,5 +1,6 @@
 lastWeapon = {}
 weapons = {}
+weapons["item_weapon_starter"] = {"weapon_starter_silence", "ability_empty"}
 weapons["item_weapon_blink"] = {"weapon_blink_blink", "weapon_blink_passive"}
 weapons["item_weapon_stungun"] = {"weapon_stungun_shoot", "weapon_stungun_passive"}
 weapons["item_weapon_sniper"] = {"weapon_sniper_snipe", "weapon_sniper_passive"}
@@ -16,7 +17,7 @@ function replaceAbility(keys)
 		return nil
 	end
 
-	if c <= 1 then
+	if c <= 1 and itemName ~= "item_weapon_starter" then
 		lastWeapon[caster:GetPlayerID()] = ""
 		for i=0,5 do
 			local item = caster:GetItemInSlot(i)
@@ -51,7 +52,7 @@ function dropWeapon(keys)
 	print("dropping yo stuffz")
 	for i=0,5 do
 		local item = caster:GetItemInSlot(i)
-		if item ~= nil then
+		if item ~= nil and item:GetName() ~= "item_weapon_starter" then
 			caster:RemoveItem(item)
 		end
 	end
@@ -64,8 +65,20 @@ function removeAbilities(keys)
 	caster:RemoveModifierByName("attribute_bonus")
 	for i=0,3 do
 		local remove = caster:GetAbilityByIndex(i)
-		if remove ~= nil and remove:GetName() ~= "ability_ondeath" then
+		if remove ~= nil and 
+			remove:GetName() ~= "ability_ondeath" and
+			remove:GetName() ~= "ability_empty" and 
+			remove:GetName() ~= "weapon_starter_silence" then
 			caster:RemoveAbility(remove:GetAbilityName())
 		end
+	end
+end
+
+function giveStarting(keys)
+	print("you get an item and YOU get an item")
+	local caster = keys.caster
+	local itemName = "item_weapon_starter"
+	if caster:HasItemInInventory(itemName) == false then
+		caster:AddItem(CreateItem(itemName, caster, caster))
 	end
 end

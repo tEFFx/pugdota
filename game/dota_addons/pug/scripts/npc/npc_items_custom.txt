@@ -1,5 +1,31 @@
 "DOTAAbilities"
 {
+	"item_weapon_starter"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"			"item_orchid"
+
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		"AbilityCooldown"				"10.0"
+		"ItemKillable"					"0"
+		"ItemSellable"					"0"
+		"ItemDroppable"					"0"
+		"ItemStackable"					"0"
+		"ItemShareability"				"ITEM_NOT_SHAREABLE"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"toggle_items.lua"
+				"Function"				"replaceAbility"
+				"Target"				"CASTER"
+			}
+		}
+	}
+
 	"item_weapon_blink"
 	{
 		"ID"							"1005"
@@ -13,9 +39,9 @@
 		"AbilityCooldown"				"20.0"
 		"ItemKillable"					"1"
 		"ItemSellable"					"0"
-		"ItemDroppable"					"1"
+		"ItemDroppable"					"0"
 		"ItemStackable"					"1"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemInitialCharges"			"2"
 
 		"OnSpellStart"
@@ -45,9 +71,9 @@
 		"AbilityCooldown"				"3.0"
 		"ItemKillable"					"1"
 		"ItemSellable"					"0"
-		"ItemDroppable"					"1"
+		"ItemDroppable"					"0"
 		"ItemStackable"					"1"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemInitialCharges"			"2"
 
 		"OnSpellStart"
@@ -77,9 +103,9 @@
 		"AbilityCooldown"				"3.0"
 		"ItemKillable"					"1"
 		"ItemSellable"					"0"
-		"ItemDroppable"					"1"
+		"ItemDroppable"					"0"
 		"ItemStackable"					"1"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemInitialCharges"			"2"
 
 		"OnSpellStart"

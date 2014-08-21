@@ -3,6 +3,12 @@
 {
 	"Version"		"1"
 
+	"ability_empty"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	}
+
 	"ability_ondeath"
 	{
 		"BaseClass"						"ability_datadriven"
@@ -83,6 +89,67 @@
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"30"
 				}
+			}
+		}
+	}
+
+	"weapon_starter_silence"
+	{
+		"BaseClass"						"drow_ranger_wave_of_silence"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"FightRecapLevel"				"1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"900"
+		"AbilityCastPoint"				"0.4"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"wave_speed"		"3000.0"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"wave_range_tooltip"	"900"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"wave_width"		"150"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"silence_duration"	"0.5"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"knockback_distance_max"	"600"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"knockback_duration"		"0.5"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"knockback_height"		"300"
 			}
 		}
 	}
