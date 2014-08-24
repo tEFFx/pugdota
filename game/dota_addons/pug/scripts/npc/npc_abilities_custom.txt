@@ -98,7 +98,6 @@
 	{
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
 		"OnSpellStart"
 		{
 			"ApplyModifier"
@@ -123,6 +122,81 @@
 						"Target"				"CASTER"
 					}
 				}				
+			}
+		}
+	}
+
+	"weapon_gauntlet_punch"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam" 		"DOTA_UNIT_TARGET_TEAM_BOTH"
+  		"AbilityUnitTargetType" 		"DOTA_UNIT_TARGET_ALL"
+  		"AbilityCastRange"				"100"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"20"
+		"AbilityManaCost"				"0"
+		"AbilityTextureName"			"tusk_walrus_punch"
+
+		"OnSpellStart"
+		{
+			"Knockback"
+			{
+				"Target"				"CASTER"
+				"Center"				"TARGET"
+				"Duration"				"0.4"
+				"Distance"				"500"
+				"Height"				"0"
+				"IsFixedDistance"		"0"
+				"ShouldStun"			"1"
+			}
+
+			"Knockback"
+			{
+				"Target"				"TARGET"
+				"Center"				"CASTER"
+				"Duration"				"0.8"
+				"Distance"				"500"
+				"Height"				"500"
+				"IsFixedDistance"		"0"
+				"ShouldStun"			"1"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"			"gauntlet_of_many_doom.lua"
+				"Function"				"punch"
+				"Target"				"TARGET"
+			}
+		}
+	}
+
+	"weapon_gauntlet_passive"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"Modifiers"
+		{
+			"attribute_bonus"
+			{
+				"Passive"				"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" 	"-15"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"			"-600"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"		"0"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-120"
+				}
+
+				"OnAttackLanded"
+				{
+					"Lifesteal"
+					{
+						"Target"			"CASTER"
+						"LifestealPercent"	"100"
+					}
+				}
 			}
 		}
 	}

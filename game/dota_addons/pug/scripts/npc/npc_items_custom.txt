@@ -16,6 +16,38 @@
 		}
 	}
 
+	"item_weapon_gauntlet"
+	{
+		"ID"							"1005"
+
+		"BaseClass"						"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"			"item_gauntlets"
+
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		"AbilityCooldown"				"5.0"
+		"ItemKillable"					"1"
+		"ItemSellable"					"0"
+		"ItemDroppable"					"0"
+		"ItemStackable"					"1"
+		"ItemShareability"				"ITEM_NOT_SHAREABLE"
+		"ItemInitialCharges"			"2"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"toggle_items.lua"
+				"Function"				"replaceAbility"
+				"Target"				"CASTER"
+			}
+
+			"SpendCharge"
+			{}
+		}
+	}
+
 	"item_weapon_starter"
 	{
 		"BaseClass"						"item_datadriven"

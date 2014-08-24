@@ -4,6 +4,7 @@ weapons["item_weapon_starter"] = {"weapon_starter_silence", "ability_empty"}
 weapons["item_weapon_blink"] = {"weapon_blink_blink", "weapon_blink_passive"}
 weapons["item_weapon_stungun"] = {"weapon_stungun_shoot", "weapon_stungun_passive"}
 weapons["item_weapon_sniper"] = {"weapon_sniper_snipe", "weapon_sniper_passive"}
+weapons["item_weapon_gauntlet"] = {"weapon_gauntlet_punch", "weapon_gauntlet_passive"}
 
 function replaceAbility(keys)
 	local caster = keys.caster

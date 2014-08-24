@@ -1,6 +1,6 @@
 -- Generated from template
 hero = nil
-weapons = {"item_weapon_sniper", "item_weapon_stungun", "item_weapon_blink"}
+weapons = {"item_weapon_sniper", "item_weapon_stungun", "item_weapon_blink", "item_weapon_gauntlet"}
 spawnAreas = {}
 spawnPickupTime = {}
 
